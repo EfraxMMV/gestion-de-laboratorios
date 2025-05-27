@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inventario</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="navbar">
+    <img src="LogoFIME.png" alt="Logo" class="logo" />
+    <div class="welcome-message">
+      <h2 id="labName">Laboratorio de Cómputo</h2>
+      <p id="userWelcome">Bienvenido, <span id="userName"></span></p>
+    </div>
+    <div class="buttons">
+      <button class="btn-secondary" onclick="window.location.href='index.html'">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="content" style="text-align: center;">
+      <h3 style="margin-bottom: 20px;">Código de laboratorio: <span id="labCode">LAB1234</span></h3>
+
+      <div style="margin: 20px 0;">
+        <button class="btn-primary" onclick="agregarEquipo()">➕ Añadir equipo</button>
+        <button class="btn-primary" onclick="eliminarEquipo()">➖ Eliminar equipo</button>
+        <button class="btn-primary" onclick="generateReport()">📊 Generar Reporte</button>
+      </div>
+
+      <table class="inventory-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>CPU</th>
+            <th>RAM</th>
+            <th>GPU</th>
+            <th>Almacenamiento (GB)</th>
+            <th>Monitor (")</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="equiposBody">
+          <!-- Los equipos se cargarán dinámicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Modal para agregar equipo -->
+  <div id="modalAgregar" class="modal">
+    <div class="modal-content">
+      <h3>Agregar equipo</h3>
+      <input type="text" placeholder="CPU (Ej: Intel Core i7-13700)" id="cpuInput" />
+      <input type="text" placeholder="RAM (Ej: DDR4 16GB)" id="ramInput" />
+      <input type="text" placeholder="GPU (Ej: NVIDIA RTX 3070)" id="gpuInput" />
+      <input type="text" placeholder="Almacenamiento (Ej: SSD 500)" id="almacenamientoInput" />
+      <input type="text" placeholder="Monitor (Ej: 27.0)" id="monitorInput" />
+      <select id="estadoInput">
+        <option value="1">Buen estado</option>
+        <option value="2">Mal estado</option>
+        <option value="3">En mantenimiento</option>
+      </select>
+      <br /><br />
+      <button class="btn-primary" onclick="confirmarAgregar()">Guardar</button>
+      <button class="btn-secondary" onclick="closeModal('modalAgregar')">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Modal para eliminar equipo -->
+  <div id="modalEliminar" class="modal">
+    <div class="modal-content">
+      <h3>Eliminar equipo</h3>
+      <input type="text" placeholder="ID del equipo (ej. EQ001)" id="eliminarIdInput" />
+      <br /><br />
+      <button class="btn-primary" onclick="confirmarEliminar()">Eliminar</button>
+      <button class="btn-secondary" onclick="closeModal('modalEliminar')">Cancelar</button>
+    </div>
+  </div>
+
+  <!-- Modal para editar equipo -->
+  <div id="modalEditar" class="modal">
+    <div class="modal-content">
+      <h3>Editar equipo <span id="editEquipoId"></span></h3>
+      <input type="text" placeholder="CPU" id="editCpuInput" />
+      <input type="text" placeholder="RAM" id="editRamInput" />
+      <input type="text" placeholder="GPU" id="editGpuInput" />
+      <input type="text" placeholder="Almacenamiento" id="editAlmacenamientoInput" />
+      <input type="text" placeholder="Monitor" id="editMonitorInput" />
+      <select id="editEstadoInput">
+        <option value="1">Buen estado</option>
+        <option value="2">Mal estado</option>
+        <option value="3">En mantenimiento</option>
+      </select>
+      <br /><br />
+      <button class="btn-primary" onclick="confirmarEditar()">Guardar cambios</button>
+      <button class="btn-secondary" onclick="closeModal('modalEditar')">Cancelar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

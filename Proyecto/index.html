@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Manejador de Inventarios</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="navbar">
+    <img src="LogoFIME.png" alt="Logo FIME" class="logo">
+    <div class="buttons">
+      <button class="btn-primary" onclick="openModal('loginModal')">Iniciar sesión</button>
+      <button class="btn-secondary" onclick="openModal('registerModal')">Crear cuenta</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="welcome">
+      <img src="LaboratoriosFIME.jpeg" alt="Portada" class="banner-img">
+      <div>
+        <h1>Sistema Manejador de Inventarios</h1>
+        <p>Este sistema está diseñado para gestionar y mantener un control eficiente del material de cómputo en las instalaciones. 
+            Permite un seguimiento detallado de los equipos, 
+            su disponibilidad y el registro de inventarios, facilitando la administración y optimización de recursos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Iniciar Sesión</h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="loginEmail">Correo electrónico</label>
+          <input type="email" id="loginEmail" placeholder="Correo" required>
+        </div>
+        <div class="form-group">
+          <label for="loginPassword">Contraseña</label>
+          <input type="password" id="loginPassword" placeholder="Contraseña" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" onclick="handleLogin()">Entrar</button>
+        <button class="btn-secondary" onclick="closeModal('loginModal')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Crear Cuenta</h3>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="registerName">Nombre</label>
+          <input type="text" id="registerName" placeholder="Nombre" required>
+        </div>
+        <div class="form-group">
+          <label for="registerLastName">Apellidos</label>
+          <input type="text" id="registerLastName" placeholder="Apellidos" required>
+        </div>
+        <div class="form-group">
+          <label for="registerEmail">Correo electrónico</label>
+          <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+        </div>
+        <div class="form-group">
+          <label for="registerPassword">Contraseña</label>
+          <input type="password" id="registerPassword" placeholder="Contraseña" required>
+        </div>
+        <div class="form-group">
+          <label for="registerLabName">Nombre del Laboratorio</label>
+          <input type="text" id="registerLabName" placeholder="Nombre del laboratorio" required>
+        </div>
+        <div class="form-group">
+          <label for="registerLabCode">Código de Laboratorio (opcional)</label>
+          <input type="text" id="registerLabCode" placeholder="Código de laboratorio (si ya existe)">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-primary" onclick="handleRegister()">Registrar</button>
+        <button class="btn-secondary" onclick="closeModal('registerModal')">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
